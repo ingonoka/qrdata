@@ -1,0 +1,52 @@
+[versions]
+agp = "8.5.2"
+kotlin = "2.1.10"
+kotlinCoroutines = "1.10.2"
+kotlinSerializationProtoBuf = "1.8.0"
+asciiDocGradlePlugin = "4.0.2"
+
+kotlinxDateTime = "0.6.1"
+
+
+
+dokka = "2.0.0"
+android-minSdk = "26"
+android-compileSdk = "34"
+android-target-compatibility = "VERSION_21"
+android-source-compatibility = "VERSION_21"
+jvm-target = "JVM_21"
+
+hexutils="v1.4-SNAPSHOT"
+#v1.0-6-g6748a94"
+utils = "v0.21-SNAPSHOT"
+bertlv = "v0.3"
+
+logbackClassic = "1.5.8"
+androidLogback = "3.0.0"
+bignum = "0.3.10"
+bouncycastle = "1.78.1"
+
+[libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
+kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinSerializationProtoBuf" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDateTime" }
+
+ingonoka-hexutils = { group = "com.ingonoka", name = "hexutils", version.ref = "hexutils"}
+ingonoka-utilslib = { group = "com.ingonoka", name = "utilslib", version.ref = "utils" }
+ingonoka-bertlvlib = { group = "com.ingonoka", name = "bertlvlib", version.ref = "bertlv"}
+
+bouncycastle-provider = { group ="org.bouncycastle", name = "bcprov-jdk15to18", version.ref = "bouncycastle" }
+jvm-logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logbackClassic" }
+android-logback = { group = "com.github.tony19", name = "logback-android", version.ref = "androidLogback" }
+bignum = {group = "com.ionspin.kotlin", name = "bignum", version.ref = "bignum"}
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+asciiDocGradlePlugin = { id = "org.asciidoctor.jvm.convert", version.ref = "asciiDocGradlePlugin" }
+dokkaGradlePlugin = { id = "org.jetbrains.dokka", version.ref = "dokka"}
+mavenPublish = { id = "maven-publish" }
