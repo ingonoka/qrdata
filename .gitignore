@@ -108,10 +108,13 @@ com_crashlytics_export_strings.xml
 
 **/*.bks
 /docs/qcatlight-manual.html
-/script.sh
+/script.md
 /src/commonTest/resources/bpi-qr-issuer-keystore.p12
 /src/commonTest/resources/store.b64
 /src/commonTest/resources/store.bks
 /src/commonTest/resources/store.p12
 /src/commonTest/resources/store1.bks
 /.kotlin/
+/src/commonTest/kotlin/com/ingonoka/qrdata/transcode/notes.txt
+/kotlin-js-store/yarn.lock
+/src/jsMain/resources/index.html

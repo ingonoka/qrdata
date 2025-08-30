@@ -1,0 +1,12 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Blue background -->
+    <rect width="120" height="120" fill="#0055A4"/>
+    <!-- Left bracket (centered) -->
+    <path d="M30 18 L24 60 L30 102" stroke="#FFFFFF" stroke-width="4" fill="none"/>
+    <!-- Right bracket (centered) -->
+    <path d="M90 18 L96 60 L90 102" stroke="#FFFFFF" stroke-width="4" fill="none"/>
+    <!-- ingo text (centered) -->
+    <text x="60" y="45" font-family="monospace" font-size="24" fill="#FFFFFF" text-anchor="middle">ingo</text>
+    <!-- noka text (centered) -->
+    <text x="60" y="75" font-family="monospace" font-size="24" fill="#FFFFFF" text-anchor="middle">noka</text>
+</svg>

@@ -1,0 +1,102 @@
+= QR Data Analysis Tool
+
+Check out my feeble attempt of writing my first Javascript.
+The script looks into the data of QR codes and shows the content in human-readable format.
+It understands a bit of generic ASN.1, EMV and some other standards that are built on top of the EMV standards, for instance, QCAT, GCASH Transit and QRPH.
+
+The idea is to first convert the data into an intermediate TLV structure, which is independent of the original encoding.
+Secondly, TLV structure (which is a tree) will be "stringified".
+This means the script tries to find the names of the tags and the meaning of the value of the TLV objects in order to convert the value portion of the TLV into a human-readable string.
+
+If you have any fare collection or payment QR code, you can find out what data it contains.
+Please consider sending it to me for further improvement of this little javascript app.
+
+(I cheated a bit and used Kotlin/Multiplatform, but still ...)
+
+== How to Use
+
+. Copy the javascript into your website.
+I am using Hugo and put it into `static/js`.
+. Load the Javascript into your web page.
++
+[source,javascript]
+----
+<script src="/js/qrdata.js"></script>
+----
+. Call function `qrdata.com.ingonoka.qrdata.transcode.stringifyData(...)` with the desired parameters.
++
+[source,javascript]
+----
+const analysisResult = qrdata.com.ingonoka.qrdata.transcode.stringifyData(
+        encoding,
+        tlv_encoding,
+        standard,
+        hexDump,
+        tlvOnly,
+        data)
+----
+
+* The [format] for the input string can be "base64", "hex" or "ascii".
+* The [tlvEncoding] can be "ber" or "ascii_emv".
+* The [standard] is "emv_customer", "emv_merchant" or "asn1".
+* The result includes a hex dum for each TLV object if [hexDump] is true.
+* Names and pretty printing of TLV values is omitted if [rawTlv] is true.
+* The [data] contains the input string.
+
+== Example
+
+Function call::
+
+[source,javascript]
+----
+qrdata.com.ingonoka.qrdata.transcode.stringifyData(
+    "hex", "ber", "asn1", true, false, "304402205247E8CF1DBAD988D71DB75B7F4C7F82A05C0FA5EB0794000AC10C6BD4F1E9350220633196041D531F3512552157C6FF067E9AD0E10101E63662EA4AB23098EB5B49"
+)
+----
+
+Result::
+....
+T:0x30,48  L:0x44,68  Sequence
+    T:0x02,2   L:0x20,32  Number => 52 47 E8 CF 1D BA D9 88
+                                    D7 1D B7 5B 7F 4C 7F 82
+                                    A0 5C 0F A5 EB 07 94 00
+                                    0A C1 0C 6B D4 F1 E9 35 => 37216706514419446629813783237157048902900027652692563510162875252372269033781
+    T:0x02,2   L:0x20,32  Number => 63 31 96 04 1D 53 1F 35
+                                    12 55 21 57 C6 FF 06 7E
+                                    9A D0 E1 01 01 E6 36 62
+                                    EA 4A B2 30 98 EB 5B 49 => 44866582888797569360447197845602060545217363081399824964755661180423354669897
+....
+
+== String to Bytes Conversion
+
+This JavaScript interprets the input string as ASCII, hexadecimal or Base64 string, and then converts the string to an array of bytes.
+ASCII means that every character represents one byte, encoded according to UTF-8 rules.
+For instance, "01" represents an array of two bytes: `[0x30, 0x31]`.
+In "hexadecimal" notation, the same byte array will be represented by this string: "3031" and in "BASE64" notation is would look like this: "AQI=".
+
+== Conversion into a TLV Structure
+
+Then the script attempts to parse the byte array using the ASN.1/BER or "EMV Merchant-presented" encoding rules.
+For example, an ADF Name "GCASH" (tag: 0x4F, length: 5) would be encoded in BER as follows: `[0x4F, 0x05, 0x47, 0x43, 0x41, 0x53, 0x48]` in the ASCII (i.e. EMV Merchant -presented) encoding it would (in theory) look like this: `[0x34, 0x46, 0x30, 0x35, 0x47, 0x43, 0x41, 0x53, 0x48]`.
+
+== Analysis of the TLV Structure
+
+The resulting TLV structure will then be interpreted according to the EMV Customer presented standard or the EMV merchant presented standard.
+The script also understands some standards that are built on top of the EMV standards, for instance, QCAT, GCASH Transit and QRPH.
+
+== Display of the Results
+
+If "INCLUDE HEX DUMP" is checked, the value of each tag (apart from templates) will be shown in hex notation.
+
+If "RAW TLV ONLY" is checked, the script will not attempt to find tag names and formatting for values.
+
+The names of tags and the string representation of the TLV values are done on a best-effort basis.
+
+== Copyright (c) 2025. Ingo Noka
+
+![http://creativecommons.org/licenses/by-nc-nd/4.0/](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png "http://creativecommons.org/licenses/by-nc-nd/4.0/")
+
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+
+

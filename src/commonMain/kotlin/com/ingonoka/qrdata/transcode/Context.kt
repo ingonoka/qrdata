@@ -7,13 +7,14 @@
  *
  */
 
+package com.ingonoka.qrdata.transcode
 
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+import kotlin.jvm.JvmInline
 
-rootProject.name = "qrdata"
+/**
+ * A marker for strings that represent a context for the
+ * scanning of a TLV structure. The tag name, permitted length and data format of
+ * a TLV depends on the standard and the context.
+ */
+@JvmInline
+value class Context(val name: String)

@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2024. Ingo Noka
- * This file belongs to project qcatlightlib.
+ * Copyright (c) 2025. Ingo Noka
+ * This file belongs to project qrdata.
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
  * Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
@@ -8,7 +8,6 @@
  */
 
 import org.asciidoctor.gradle.jvm.AsciidoctorTask
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.ByteArrayOutputStream
 
@@ -33,6 +32,7 @@ project.version = getVersionName()
 android {
 
     namespace = "${project.group}.${project.name}"
+    //noinspection GradleDependency,GradleDependency
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     version = rootProject.version
 
@@ -111,7 +111,6 @@ kotlin {
 
         commonMain {
             dependencies {
-                implementation(libs.kotlinx.coroutines)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.kotlinx.serialization.protobuf)
 
@@ -120,7 +119,6 @@ kotlin {
 
                 implementation(libs.bignum)
 
-//                implementation(libs.ingonoka.bertlvlib)
             }
         }
 
@@ -133,13 +131,11 @@ kotlin {
         jvmMain {
 
             dependencies {
-                implementation(libs.bouncycastle.provider)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(libs.bouncycastle.provider)
             }
         }
     }
