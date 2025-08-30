@@ -94,7 +94,8 @@ The names of tags and the string representation of the TLV values are done on a 
 
 == Copyright (c) 2025. Ingo Noka
 
-pass:[<a href="https://github.com/ingonoka/qrdata">QR Data Analyzer</a> © 2025 by <a href="https://afcsblog.ingonoka.com/about/">Ingo Noka</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">]
+https://github.com/ingonoka/qrdata[QR Data Analyzer] (C) by https://afcsblog.ingonoka.com/about/[Ingo Noka] is licensed under https://creativecommons.org/licenses/by-nc-nd/4.0/[CC BY-NC-ND 4.0] image:https://mirrors.creativecommons.org/presskit/icons/cc.svg[CC, fit=line] image:https://mirrors.creativecommons.org/presskit/icons/by.svg[By, fit=line] image:https://mirrors.creativecommons.org/presskit/icons/nc.svg[Nc, fit=line] image:https://mirrors.creativecommons.org/presskit/icons/nd.svg[nd, fit=line]
+
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
